@@ -4,9 +4,9 @@ A centralized, unified vulnerability scanner orchestration and reporting platfor
 
 ---
 
-## What is VulnHub and How Does This Dashboard Help?
+## How Does This Dashboard Help?
 
-**[VulnHub](https://www.vulnhub.com/)** is a well-known platform that hosts pre-configured virtual machines (VMs) containing deliberate security vulnerabilities, design exploits, and configuration weaknesses. These VMs serve as legal, local environments for cybersecurity professionals and students to practice penetration testing, security auditing, and vulnerability assessment.
+
 
 ### Role of the Vulnerability Assessment Dashboard:
 When auditing a VulnHub VM, researchers usually run several independent scanning tools which output separate, non-standardized reports (Nmap XMLs, ZAP JSONs, OpenVAS logs).
