@@ -1,0 +1,44 @@
+{
+  "rules": [
+    {
+      "pattern": "sql injection",
+      "severity": "Critical",
+      "remediation": "Validate and sanitize all user-supplied inputs. Use parameterized queries / prepared statements exclusively. Enforce least-privilege service accounts on the database."
+    },
+    {
+      "pattern": "cross-site scripting",
+      "severity": "High",
+      "remediation": "Ensure all user inputs are contextually HTML-escaped before display in the browser. Implement a strong Content Security Policy (CSP) and set HttpOnly flags on session cookies."
+    },
+    {
+      "pattern": "telnet",
+      "severity": "Medium",
+      "remediation": "Disable Telnet daemon service. Implement SSH for secure, encrypted remote shell access instead."
+    },
+    {
+      "pattern": "ftp",
+      "severity": "Low",
+      "remediation": "Decommission plain-text FTP services. Replace with SFTP (SSH File Transfer Protocol) or HTTPS secure transfers."
+    },
+    {
+      "pattern": "ssh",
+      "severity": "Info",
+      "remediation": "Restrict SSH ingress ports to known management subnet IPs. Disable password authentication in favor of public key login and disable root ssh logins."
+    },
+    {
+      "pattern": "bind9",
+      "severity": "High",
+      "remediation": "Apply current stable package updates for the BIND9 service daemon. Restrict recursive queries to authorized local addresses only."
+    },
+    {
+      "pattern": "apache",
+      "severity": "Info",
+      "remediation": "Ensure the Apache webserver banner details are hidden (ServerTokens ProductOnly, ServerSignature Off) and configure proper TLS."
+    },
+    {
+      "pattern": "ssl",
+      "severity": "Medium",
+      "remediation": "Disable deprecated TLS versions (1.0 and 1.1). Enforce TLS 1.2 or 1.3 and select secure ciphers (ECDHE/AES-GCM)."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<get_results_response status="200" status_text="OK">
+  <result id="result-uuid-1">
+    <name>Debian Local Security Advisory (DSA-4890-1)</name>
+    <comment></comment>
+    <host>192.168.1.50</host>
+    <port>general/tcp</port>
+    <nvt oid="1.3.6.1.4.1.25326.3.1.2.1">
+      <name>Debian Advisory DSA-4890-1 (bind9)</name>
+      <cvss_base>7.5</cvss_base>
+      <cve>CVE-2021-25215</cve>
+      <description>A vulnerability was found in Bind9 dns server where a malicious query could trigger an assertion failure causing denial of service.</description>
+    </nvt>
+    <threat>High</threat>
+    <severity>7.5</severity>
+    <description>Vulnerability in bind9 package. The system is vulnerable to remote crash.</description>
+  </result>
+  <result id="result-uuid-2">
+    <name>HTTP Server Type and Version</name>
+    <comment></comment>
+    <host>192.168.1.50</host>
+    <port>80/tcp</port>
+    <nvt oid="1.3.6.1.4.1.25326.3.1.2.2">
+      <name>HTTP Server Banner</name>
+      <cvss_base>0.0</cvss_base>
+      <cve>NOCVE</cve>
+      <description>Identified HTTP server banner details.</description>
+    </nvt>
+    <threat>Log</threat>
+    <severity>0.0</severity>
+    <description>Apache/2.4.41 is running on port 80.</description>
+  </result>
+</get_results_response>
