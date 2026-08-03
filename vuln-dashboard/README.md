@@ -52,10 +52,11 @@ vuln-dashboard/
 ## Setup and Installation
 
 ### 1. Setup Python Virtual Environment
-Install Python 3.11 or higher on your host system. In the project root directory, run:
+Install Python 3.11 or higher on your host system. Navigate into the `vuln-dashboard` folder inside your repository root, then initialize the environment:
 
 #### On Windows (PowerShell):
 ```powershell
+cd vuln-dashboard
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
@@ -63,6 +64,7 @@ pip install -r requirements.txt
 
 #### On Linux Ubuntu:
 ```bash
+cd vuln-dashboard
 sudo apt update
 sudo apt install -y python3-pip python3-venv
 python3 -m venv venv
@@ -123,16 +125,18 @@ OpenVAS/GVM cannot run natively on Windows. To test OpenVAS targeting from a Win
 To verify and test that the backend, database storage, and front-end dashboard are operating correctly, follow these guides.
 
 ### Step 1: Run the Automated Test Suite (Offline Verification)
-Both Windows and Linux can execute the automated test suite. This verifies the XML/JSON parsing libraries, SQLite DB, report generator, and remediation rule overrides using offline scanner mock fixtures (no scanners required).
+Both Windows and Linux can execute the automated test suite. Make sure you are in the `vuln-dashboard` directory and your virtual environment is active.
 
 #### On Windows (PowerShell):
 ```powershell
+cd "C:\AFIF\CyberSec Projects\VulnHub\vuln-dashboard"
 $env:PYTHONPATH="."
 python -m pytest tests/
 ```
 
 #### On Linux Ubuntu:
 ```bash
+cd vuln-dashboard
 export PYTHONPATH="."
 python3 -m pytest tests/
 ```
@@ -149,28 +153,36 @@ tests/test_scanners.py .....
 ### Step 2: Running the Live Application
 
 #### 1. Start the FastAPI Backend
-Start the backend web server, which initializes the SQLite database and loads endpoint handlers.
+Open a terminal, navigate into the project directory, activate the environment, and run:
 
 - **On Windows (PowerShell):**
   ```powershell
+  cd "C:\AFIF\CyberSec Projects\VulnHub\vuln-dashboard"
+  .\venv\Scripts\Activate.ps1
   python -m uvicorn backend.main:app --reload --port 8000
   ```
 - **On Linux Ubuntu:**
   ```bash
+  cd vuln-dashboard
+  source venv/bin/activate
   python3 -m uvicorn backend.main:app --reload --port 8000
   ```
 
 *Access the interactive API docs at http://127.0.0.1:8000/docs.*
 
 #### 2. Start the Streamlit Frontend Dashboard
-In a **new terminal session** (with your virtual environment active):
+Open a **second terminal session**, navigate into the project directory, activate the environment, and run:
 
 - **On Windows (PowerShell):**
   ```powershell
+  cd "C:\AFIF\CyberSec Projects\VulnHub\vuln-dashboard"
+  .\venv\Scripts\Activate.ps1
   python -m streamlit run frontend/dashboard.py
   ```
 - **On Linux Ubuntu:**
   ```bash
+  cd vuln-dashboard
+  source venv/bin/activate
   python3 -m streamlit run frontend/dashboard.py
   ```
 
