@@ -41,8 +41,6 @@ class ScanRequest(BaseModel):
 def health_check():
     """Verify backend health and determine availability of external security scanners."""
     nmap = NmapScanner()
-    zap = ZapScanner()
-    openvas = OpenvasScanner()
     
     return {
         "status": "healthy",
@@ -52,12 +50,12 @@ def health_check():
                 "path": nmap.binary_path or "Not found in PATH"
             },
             "zap": {
-                "available": zap.is_available(),
-                "info": "Requires running ZAP daemon and connection settings"
+                "available": False,
+                "info": "Requires running ZAP daemon — use Scan Console to connect"
             },
             "openvas": {
-                "available": openvas.is_available(),
-                "info": "Requires GVM/Greenbone service (Linux only natively; remote connection string required on Windows)"
+                "available": False,
+                "info": "Requires GVM/Greenbone service (Linux only natively; remote connection on Windows)"
             }
         }
     }

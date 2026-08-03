@@ -48,13 +48,13 @@ st.markdown("---")
 
 # Settings & Connection sidebar
 st.sidebar.header("⚙️ Settings & Configuration")
-backend_url = st.sidebar.text_input("Backend API Server", "http://localhost:8000")
+backend_url = st.sidebar.text_input("Backend API Server", "http://127.0.0.1:8000")
 
 # Fetch Backend Health
-@st.cache_data(ttl=3)
+@st.cache_data(ttl=5)
 def get_health(url: str) -> Dict[str, Any]:
     try:
-        response = requests.get(f"{url}/health", timeout=2)
+        response = requests.get(f"{url}/health", timeout=5)
         if response.status_code == 200:
             return response.json()
     except Exception:
